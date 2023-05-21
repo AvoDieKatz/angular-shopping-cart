@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row gap-0 row-gap-3">
+        <ng-container *ngIf="{cartItems: cartItems$ | async} as m">
+            <div class="col-12 col-lg-8">
+                <div class="card" style="min-height: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">Your cart</h5>
+                        <hr />
+
+                        <ul class="list-group list-group-flush" *ngIf="m.cartItems!.length else empty">
+                            <li class="list-group-item px-0" *ngFor="let item of m.cartItems">
+                                <div class="container px-0">
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <div class="img-container">
+                                                <img src="https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/t/_/t_m_18.png"
+                                                    alt="Some image" />
+                                            </div>
+                                        </div>
+                                        <div class="col ms-auto me-auto">
+                                            <p class="fs-5">{{item.name}}</p>
+                                            <p>{{item.price | currency}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-flex justify-content-end">
+                                                <button class="btn btn-link"
+                                                    (click)="removeCartItem(item)">Remove</button>
+                                                <button class="btn btn-secondary" (click)="decreaseCartItem(item)"><i
+                                                        class="bi bi-dash"></i></button>
+                                                <input class="form-control mx-1 w-25" type="number" min="0"
+                                                    value={{item.qty}} />
+                                                <button class="btn btn-secondary" (click)="increaseCartItem(item)"><i
+                                                        class="bi bi-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+
+                        <ng-template #empty>
+                            <div class="text-center">
+                                <p class="fs-3 fw-semibold text-uppercase">It is empty here!</p>
+                                <button class="btn btn-primary text-uppercase" type="button" (click)="goShopping()">Go
+                                    shopping!</button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase">Subtotal</h5>
+                        <hr />
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex">
+                                <span class="fs-6 me-auto text-uppercase">Subtotal</span>
+                                <span class="fw-bold">{{getTotal() | currency}}</span>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <span class="fs-6 me-auto text-uppercase">Shipping fee</span>
+                                <span class="fw-bold">$ 0.00</span>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <span class="fs-6 me-auto text-uppercase">Discount</span>
+                                <span class="fw-bold">-$ 0.00</span>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <span class="fs-4 me-auto text-uppercase">Total</span>
+                                <span class="fs-4 fw-bold">{{getTotal() | currency}}</span>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <button class="btn btn-primary float-end btn-lg">Checkout</button>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center text-body-secondary fst-italic">
+                        Protected by my cat!
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

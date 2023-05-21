@@ -1,0 +1,5 @@
+<section class="contents container">
+    <div class="row row-cols-2 row-cols-md-5 g-3">
+        <app-product *ngFor="let product of productList | async" [product]="product"></app-product>
+    </div>
+</section>

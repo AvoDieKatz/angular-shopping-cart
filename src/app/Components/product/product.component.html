@@ -1,0 +1,23 @@
+<div class="col">
+    <div class="card">
+        <div class="p-4">
+            <img src="https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/t/_/t_m_18.png"
+                class="card-img-top" alt="iphone">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-uppercase">{{product.name}}</h5>
+            <p class="card-text">{{product.price | currency}}</p>
+            <p class="card-text text-muted">Sold: {{product.sold}}</p>
+            <div class="d-flex justify-content-between">
+                <div class="row row-cols-auto g-1">
+                    <div class="col w-100">
+                        <a routerLink="/p/{{product.id}}" class="btn btn-primary text-uppercase w-100">Detail</a>
+                    </div>
+                    <div class="col w-100">
+                        <app-add-item-btn [item]="product"></app-add-item-btn>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

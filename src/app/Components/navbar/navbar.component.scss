@@ -1,0 +1,15 @@
+.nav-cart.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* remove the gap so it doesn't close */
+  right: 0;
+  min-width: 400px;
+}
+
+.quantity-box {
+    i {
+        font-size: 12px;
+    }
+    .item-quantity {
+        width: 30px;
+    }
+}

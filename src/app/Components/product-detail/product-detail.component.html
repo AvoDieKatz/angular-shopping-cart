@@ -1,0 +1,34 @@
+<div class="container">
+
+    <a class="icon-link mb-4" href="" (click)="goBack()">
+        <i class="bi bi-arrow-return-left me-1"></i>
+        <span>Return</span>
+    </a>
+
+    <div class="row gap-0 row-gap-2">
+            <div class="col-12 col-md-6">
+                <div class="img-container bordered-container">
+                    <img src="https://cdn2.cellphones.com.vn/x358,webp,q100/media/catalog/product/t/_/t_m_18.png"
+                        class="card-img-top" alt="iphone">
+                </div>
+            </div>
+            <div class="col">
+                <div class="bordered-container">
+                    <p class="text-muted">SKU: {{Product?.id}}</p>
+                    <p class="fs-2">{{Product?.name}}</p>
+                    <p class="fs-3">{{Product?.price | currency}}</p>
+                    <p class="text-muted">Sold: {{Product?.sold}}</p>
+
+                    <div class="row align-items-center">
+                        <div class="col-12">
+
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <app-add-item-btn [item]="Product!"></app-add-item-btn>
+                        <span class="text-muted ms-3">In stock: {{Product?.stock}}</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
